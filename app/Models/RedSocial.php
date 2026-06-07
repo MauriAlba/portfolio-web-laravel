@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RedSocial extends Model
 {
+    protected $table = 'redes_sociales';
     protected $fillable = [
         'nombre',
         'icono',

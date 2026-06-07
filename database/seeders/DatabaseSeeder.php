@@ -24,6 +24,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             PersonaSeeder::class,
+            ExperienciaSeeder::class,
+            EducacionSeeder::class,
+            HabilidadSeeder::class,
+            ProyectoSeeder::class,
         ]);
     }
 }

@@ -23,12 +23,12 @@ class Persona extends Model
         return $this->hasMany(Experiencia::class);
     }
 
-    public function educacions()
+    public function educaciones()
     {
         return $this->hasMany(Educacion::class);
     }
 
-    public function habilidads()
+    public function habilidades()
     {
         return $this->hasMany(Habilidad::class);
     }
@@ -38,7 +38,7 @@ class Persona extends Model
         return $this->hasMany(Proyecto::class);
     }
 
-    public function redSocials()
+    public function redes_sociales()
     {
         return $this->hasMany(RedSocial::class);
     }
