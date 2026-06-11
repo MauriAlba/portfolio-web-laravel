@@ -13,7 +13,8 @@ class HomeController extends Controller
             'experiencias',
             'educaciones',
             'habilidades',
-            'proyectos'
+            'proyectos',
+            'redesSociales'
         ])->first();
 
         return view('home', compact('persona'));

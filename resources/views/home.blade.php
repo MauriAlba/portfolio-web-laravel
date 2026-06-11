@@ -1,96 +1,165 @@
-@extends('layouts.app')
-
-@section('title', 'Portfolio')
+@extends('layouts.public')
 
 @section('content')
 
-<section class="bg-dark text-white text-center py-5">
 
-    <div class="container">
 
-        <h1 class="display-3">
-            {{ $persona->nombre }} {{ $persona->apellido }}
-        </h1>
+    <section id="inicio" class="bg-dark text-white text-center py-5">
 
-        <p class="lead">
-            {{ $persona->titulo }}
-        </p>
+        <div class="container text-center h-100 d-flex flex-column justify-content-center align-items-center">
 
-    </div>
+            <img
+                src="{{ asset('images/Perfil_Java.png') }}"
+                class="rounded-circle mb-4 h-25 w-25"
+                alt="Foto perfil">
 
-</section>
+            <h1 class="display-4">
+                {{ $persona->nombre }} {{ $persona->apellido }}
+            </h1>
 
-<section class="container py-5">
-
-    <h2 class="text-center mb-4">
-        Acerca de mí
-    </h2>
-
-    <div class="row justify-content-center">
-
-        <div class="col-md-8 text-center">
-
-            <p>
-                {{ $persona->acerca_de }}
-            </p>
-
-            <p>
-                📍 {{ $persona->ubicacion }}
-            </p>
-
-            <p>
-                ✉️ {{ $persona->email }}
-            </p>
-
-            <p>
-                📞 {{ $persona->telefono }}
+            <p class="lead">
+                {{ $persona->titulo }}
             </p>
 
         </div>
 
-    </div><
+    </section>
 
-</section>
+    <section id="acerca" class="container py-5">
 
-<section class="bg-light py-5">
+    <section id="experiencia" class="bg-light py-5">
 
-    <div class="container">
+    <section id="educacion" class="container py-5">
+
+    <section id="habilidades" class="bg-light py-5">
+
+    <section id="proyectos" class="container py-5">
+
+    <!-- <section class="bg-dark text-white text-center py-5">
+
+        <div class="container">
+
+            <h1 class="display-3">
+                {{ $persona->nombre }} {{ $persona->apellido }}
+            </h1>
+
+            <p class="lead">
+                {{ $persona->titulo }}
+            </p>
+
+        </div>
+
+    </section> -->
+
+    <section class="container py-5">
+
+        <h2 class="text-center mb-4">
+            Acerca de mí
+        </h2>
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-8 text-center">
+
+                <p>
+                    {{ $persona->acerca_de }}
+                </p>
+
+                <p>
+                    📍 {{ $persona->ubicacion }}
+                </p>
+
+                <p>
+                    ✉️ {{ $persona->email }}
+                </p>
+
+                <p>
+                    📞 {{ $persona->telefono }}
+                </p>
+
+            </div>
+
+        </div><
+
+    </section>
+
+    <section class="bg-light py-5">
+
+        <div class="container">
+
+            <h2 class="text-center mb-5">
+                Experiencia Laboral
+            </h2>
+
+            <div class="row">
+
+                @foreach($persona->experiencias as $experiencia)
+
+                    <div class="col-md-6 mb-4">
+
+                        <div class="card h-100 shadow-sm">
+
+                            <div class="card-body">
+
+                                <h4>
+                                    {{ $experiencia->puesto }}
+                                </h4>
+
+                                <h5 class="text-secondary">
+                                    {{ $experiencia->empresa }}
+                                </h5>
+
+                                <p>
+                                    {{ $experiencia->descripcion }}
+                                </p>
+
+                                <small>
+                                    {{ $experiencia->fecha_inicio }}
+
+                                    @if($experiencia->fecha_fin)
+                                        - {{ $experiencia->fecha_fin }}
+                                    @else
+                                        - Actualidad
+                                    @endif
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                @endforeach
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="container py-5">
 
         <h2 class="text-center mb-5">
-            Experiencia Laboral
+            Educación
         </h2>
 
         <div class="row">
 
-            @foreach($persona->experiencias as $experiencia)
+            @foreach($persona->educaciones as $educacion)
 
                 <div class="col-md-6 mb-4">
 
-                    <div class="card h-100 shadow-sm">
+                    <div class="card h-100">
 
                         <div class="card-body">
 
-                            <h4>
-                                {{ $experiencia->puesto }}
-                            </h4>
+                            <h4>{{ $educacion->titulo }}</h4>
 
                             <h5 class="text-secondary">
-                                {{ $experiencia->empresa }}
+                                {{ $educacion->institucion }}
                             </h5>
 
-                            <p>
-                                {{ $experiencia->descripcion }}
-                            </p>
-
-                            <small>
-                                {{ $experiencia->fecha_inicio }}
-
-                                @if($experiencia->fecha_fin)
-                                    - {{ $experiencia->fecha_fin }}
-                                @else
-                                    - Actualidad
-                                @endif
-                            </small>
+                            <p>{{ $educacion->descripcion }}</p>
 
                         </div>
 
@@ -102,120 +171,83 @@
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <section class="bg-light py-5">
 
-<section class="container py-5">
+        <div class="container">
 
-    <h2 class="text-center mb-5">
-        Educación
-    </h2>
+            <h2 class="text-center mb-5">
+                Habilidades
+            </h2>
 
-    <div class="row">
+            @foreach($persona->habilidades as $habilidad)
 
-        @foreach($persona->educaciones as $educacion)
+                <div class="mb-3">
 
-            <div class="col-md-6 mb-4">
+                    <strong>{{ $habilidad->nombre }}</strong>
 
-                <div class="card h-100">
+                    <div class="progress">
 
-                    <div class="card-body">
+                        <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: {{ $habilidad->porcentaje }}%;">
 
-                        <h4>{{ $educacion->titulo }}</h4>
+                            {{ $habilidad->porcentaje }}%
 
-                        <h5 class="text-secondary">
-                            {{ $educacion->institucion }}
-                        </h5>
-
-                        <p>{{ $educacion->descripcion }}</p>
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
+            @endforeach
 
-        @endforeach
+        </div>
 
-    </div>
+    </section>
 
-</section>
-
-<section class="bg-light py-5">
-
-    <div class="container">
+    <section class="container py-5">
 
         <h2 class="text-center mb-5">
-            Habilidades
+            Proyectos
         </h2>
 
-        @foreach($persona->habilidades as $habilidad)
+        <div class="row">
 
-            <div class="mb-3">
+            @foreach($persona->proyectos as $proyecto)
 
-                <strong>{{ $habilidad->nombre }}</strong>
+                <div class="col-md-6 mb-4">
 
-                <div class="progress">
+                    <div class="card h-100">
 
-                    <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: {{ $habilidad->porcentaje }}%;">
+                        <div class="card-body">
 
-                        {{ $habilidad->porcentaje }}%
+                            <h4>{{ $proyecto->nombre }}</h4>
 
-                    </div>
+                            <p>{{ $proyecto->descripcion }}</p>
 
-                </div>
+                            <a
+                                href="{{ $proyecto->url_github }}"
+                                target="_blank"
+                                class="btn btn-dark">
 
-            </div>
+                                GitHub
 
-        @endforeach
+                            </a>
 
-    </div>
-
-</section>
-
-<section class="container py-5">
-
-    <h2 class="text-center mb-5">
-        Proyectos
-    </h2>
-
-    <div class="row">
-
-        @foreach($persona->proyectos as $proyecto)
-
-            <div class="col-md-6 mb-4">
-
-                <div class="card h-100">
-
-                    <div class="card-body">
-
-                        <h4>{{ $proyecto->nombre }}</h4>
-
-                        <p>{{ $proyecto->descripcion }}</p>
-
-                        <a
-                            href="{{ $proyecto->url_github }}"
-                            target="_blank"
-                            class="btn btn-dark">
-
-                            GitHub
-
-                        </a>
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
+            @endforeach
 
-        @endforeach
+        </div>
 
-    </div>
+    </section>
 
-</section>
 
 @endsection

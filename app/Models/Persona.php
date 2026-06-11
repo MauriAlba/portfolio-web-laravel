@@ -38,7 +38,7 @@ class Persona extends Model
         return $this->hasMany(Proyecto::class);
     }
 
-    public function redes_sociales()
+    public function redesSociales()
     {
         return $this->hasMany(RedSocial::class);
     }
