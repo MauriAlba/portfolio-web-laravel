@@ -3,33 +3,33 @@
     <x-slot name="header">
 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Nueva Experiencia') }}
+            {{ __('Nueva Educación') }}
         </h2>
 
     </x-slot>
 
     <div class="container py-5">
 
-        <h1>Nueva Experiencia</h1>
+        <h1>Nueva Educación</h1>
 
-        <form action="{{ route('experiencias.store') }}" method="POST">
+        <form action="{{ route('educaciones.store') }}" method="POST">
 
             @csrf
 
             <div class="mb-3">
-                <label class="form-label">Empresa</label>
+                <label class="form-label">Institución</label>
                 <input
                     type="text"
-                    name="empresa"
+                    name="institucion"
                     class="form-control"
                     required>
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Puesto</label>
+                <label class="form-label">Título</label>
                 <input
                     type="text"
-                    name="puesto"
+                    name="titulo"
                     class="form-control"
                     required>
             </div>

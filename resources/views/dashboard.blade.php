@@ -16,7 +16,7 @@
                     Administración del Portfolio
                 </h3>
 
-                <div class="d-grid gap-3">
+                <div class="d-grid gap-3 mb-1">
 
                     <a
                         href="{{ route('experiencias.index') }}"
@@ -25,6 +25,18 @@
                         Administrar Experiencias
 
                     </a>
+
+                </div>
+
+                <div class="d-grid gap-3 mb-1">
+
+                    <a
+                        href="{{ route('educaciones.index') }}"
+                        class="btn btn-success">
+
+                        Administrar Educación
+
+                    </a>                    
 
                 </div>
 

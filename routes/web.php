@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ExperienciaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\EducacionController;
 
 
 Route::get('/', [HomeController::class, 'index']);
@@ -19,6 +20,11 @@ Route::middleware('auth')->group(function () {
     Route::resource(
         'admin/experiencias',
         ExperienciaController::class
+    );
+
+    Route::resource(
+        'admin/educaciones',
+        EducacionController::class
     );
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

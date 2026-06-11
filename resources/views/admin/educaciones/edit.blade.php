@@ -1,69 +1,79 @@
 <x-app-layout>
-    
+
     <x-slot name="header">
 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Nueva Experiencia') }}
+            {{ __('Editar Educacion') }}
         </h2>
 
     </x-slot>
 
     <div class="container py-5">
 
-        <h1>Nueva Experiencia</h1>
+        <h1>Editar Educación</h1>
 
-        <form action="{{ route('experiencias.store') }}" method="POST">
+        <form
+            action="{{ route('educaciones.update', $educacion) }}"
+            method="POST">
 
             @csrf
+            @method('PUT')
 
             <div class="mb-3">
-                <label class="form-label">Empresa</label>
+                <label class="form-label">Institución</label>
+
                 <input
                     type="text"
-                    name="empresa"
+                    name="institucion"
+                    value="{{ $educacion->institucion }}"
                     class="form-control"
                     required>
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Puesto</label>
+                <label class="form-label">Título</label>
+
                 <input
                     type="text"
-                    name="puesto"
+                    name="titulo"
+                    value="{{ $educacion->titulo     }}"
                     class="form-control"
                     required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Descripción</label>
+
                 <textarea
                     name="descripcion"
-                    class="form-control"></textarea>
+                    class="form-control">{{ $educacion ->descripcion }}</textarea>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Fecha Inicio</label>
+
                 <input
                     type="date"
                     name="fecha_inicio"
+                    value="{{ $educacion->fecha_inicio }}"
                     class="form-control"
                     required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Fecha Fin</label>
+
                 <input
                     type="date"
                     name="fecha_fin"
+                    value="{{ $educacion->fecha_fin }}"
                     class="form-control">
             </div>
 
-            <button class="btn btn-primary">
-                Guardar
+            <button type="submit" class="btn btn-primary">
+                Guardar Cambios
             </button>
 
         </form>
-
     </div>
-
 </x-app-layout>

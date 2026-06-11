@@ -1,5 +1,3 @@
-
-
 <x-app-layout>
     
     <x-slot name="header">
@@ -9,6 +7,7 @@
         </h2>
 
     </x-slot>
+    
     <div class="container py-5">
 
         <h1>Editar Experiencia</h1>

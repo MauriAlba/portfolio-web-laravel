@@ -8,9 +8,15 @@ use App\Models\Experiencia;
 
 class ExperienciaController extends Controller
 {
+    //vista index, create, store, edit, update, destroy
+
+    //vista index
     public function index()
     {
-        $experiencias = Experiencia::orderBy('fecha_inicio', 'desc')->get();
+        $experiencias = Experiencia::orderBy(
+            'fecha_inicio',
+            'desc'
+        )->get();
 
         return view(
             'admin.experiencias.index',
@@ -18,11 +24,17 @@ class ExperienciaController extends Controller
         );
     }
 
+    
+    
+    //vista create
     public function create()
     {
         return view('admin.experiencias.create');
     }
 
+    
+    
+    //vista store
     public function store(Request $request)
     {
         $request->validate([
