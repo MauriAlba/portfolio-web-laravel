@@ -94,9 +94,4 @@ class ExperienciaController extends Controller
             ->route('experiencias.index')
             ->with('success', 'Experiencia eliminada');
     }
-
-
-    
-
-
 }

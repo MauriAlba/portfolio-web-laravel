@@ -1,12 +1,9 @@
-<x-app-layout>
+@extends('admin.layouts.app')
 
-    <x-slot name="header">
+@section('title', 'Editar Educación')
+@section('header', 'Editar Educación')
 
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Editar Educacion') }}
-        </h2>
-
-    </x-slot>
+@section('content')
 
     <div class="container py-5">
 
@@ -76,4 +73,4 @@
 
         </form>
     </div>
-</x-app-layout>
+@endsection
