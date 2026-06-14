@@ -161,6 +161,16 @@
 
                             <p>{{ $educacion->descripcion }}</p>
 
+                            <small>
+                                {{ $educacion->fecha_inicio }}
+
+                                @if($educacion->fecha_fin)
+                                    - {{ $educacion->fecha_fin }}
+                                @else
+                                    - Actualidad
+                                @endif
+                            </small>
+
                         </div>
 
                     </div>

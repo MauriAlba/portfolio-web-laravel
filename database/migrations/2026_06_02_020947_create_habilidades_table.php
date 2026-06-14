@@ -13,15 +13,11 @@ return new class extends Migration
     {
         Schema::create('habilidades', function (Blueprint $table) {
             $table->id();
-
             $table->string('nombre', 100);
-
             $table->unsignedTinyInteger('porcentaje');
-
             $table->foreignId('persona_id')
                 ->constrained()
                 ->cascadeOnDelete();
-
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('habilidads');
+        Schema::dropIfExists('habilidades');
     }
 };
